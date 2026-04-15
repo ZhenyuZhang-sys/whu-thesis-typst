@@ -176,7 +176,7 @@ $ mat(delim: "(", a_(11), a_(12), a_(13); a_(21), a_(22), a_(23); a_(31), a_(32)
 
 字体测试：
 
-宋体 #text(font: ("Heiti SC", "SimHei", "Noto Sans SC"))[黑体] #text(font: ("Kaiti SC", "KaiTi", "LXGW WenKai"))[楷书] #text(font: ("STFangsong", "FangSong", "Noto Serif SC"))[仿宋]
+宋体 #text(font: "Heiti SC")[黑体] #text(font: "Kaiti SC")[楷书] #text(font: "STFangsong")[仿宋]
 
 #text(weight: "bold")[粗体] #emph[意大利斜体]
 
