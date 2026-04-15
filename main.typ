@@ -65,6 +65,8 @@
 
 This is Wuhan University thesis template, welcome to use!
 
+参考文献引用示例：FUSE 的性能问题在 @vangoor_fuse_2017 中有过系统分析；信息论的经典工作见 @shannon_mathematical_1948。Typst 官方文档见 @typst_documentation。
+
 == 公式
 
 === 算符、希腊字母
@@ -188,8 +190,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 // ========== 参考文献 ==========
-// 如果有 .bib 文件，取消注释以下行：
-// #make-bibliography("ref/refs.bib")
+#make-bibliography("ref/refs.bib")
 
 
 // ========== 致谢 ==========
