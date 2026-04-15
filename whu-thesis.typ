@@ -274,7 +274,7 @@
 
       v(1fr)
       align(center)[
-        #text(size: zihao.at("三号"), font: ("Arial", "SimHei"))[#year-cn 年#month-cn 月]
+        #text(size: zihao.at("三号"), font: ("Times New Roman", "SimHei"))[#year-cn 年#month-cn 月]
       ]
       v(1cm)
     }
@@ -375,7 +375,7 @@
         #text(
           size: zihao.at("小二"),
           weight: "bold",
-          font: ("Arial", "SimHei"),
+          font: ("Times New Roman", "SimHei"),
         )[原创性声明]
       ]
       v(0.5cm)
@@ -391,7 +391,7 @@
         #text(
           size: zihao.at("小二"),
           weight: "bold",
-          font: ("Arial", "SimHei"),
+          font: ("Times New Roman", "SimHei"),
         )[版权使用授权书]
       ]
       v(0.5cm)
@@ -402,7 +402,7 @@
       text(size: zihao.at("小四"))[#sig-block]
     } else {
       align(center)[
-        #text(size: zihao.at("小二"), weight: "bold", font: ("Arial", "SimHei"))[
+        #text(size: zihao.at("小二"), weight: "bold", font: ("Times New Roman", "SimHei"))[
           关于学位论文原创性和学术规范的声明
         ]
       ]
@@ -474,7 +474,7 @@
       #text(
         size: zihao-small2,
         weight: "bold",
-        font: ("Arial", "SimHei"),
+        font: ("Times New Roman", "SimHei"),
       )[摘#h(2em)要]
     ]
     heading(level: 1, numbering: none, outlined: true, bookmarked: true)[摘要]
@@ -485,7 +485,7 @@
     par(first-line-indent: 0pt)[
       #text(
         weight: "bold",
-        font: ("Arial", "SimHei"),
+        font: ("Times New Roman", "SimHei"),
       )[关键词：]#keywords.join("；")
     ]
   }
@@ -526,7 +526,7 @@
     #text(
       size: zihao-small2,
       weight: "bold",
-      font: ("Arial", "SimHei"),
+      font: ("Times New Roman", "SimHei"),
     )[目#h(2em)录]
   ]
   v(0.5cm)
@@ -615,7 +615,7 @@
     set text(
       size: zihao.at("小二"),
       weight: "bold",
-      font: ("Arial", "SimHei"),
+      font: ("Times New Roman", "SimHei"),
     )
     v(0.8em)
     if it.numbering == none {
@@ -644,7 +644,7 @@
     set text(
       size: zihao.at("四号"),
       weight: "bold",
-      font: ("Arial", "SimHei"),
+      font: ("Times New Roman", "SimHei"),
     )
     v(0.5em)
     it
@@ -655,7 +655,7 @@
     set text(
       size: zihao.at("小四"),
       weight: "bold",
-      font: ("Arial", "SimHei"),
+      font: ("Times New Roman", "SimHei"),
     )
     v(0.3em)
     it
@@ -671,11 +671,30 @@
       str(n)
     }
   })
-  // 图表 caption 样式：宋体粗体五号
+  // 图表 caption 样式（参考 whu-thesis 2024 规范）：
+  //   表标题：黑体加粗，小四号，置于表上方
+  //   图标题：宋体，小四号，置于图下方
+  //   "表 X.X"/"图 X.X" 与标题之间空一格
+  show figure.where(kind: table): set figure(supplement: "表")
+  show figure.where(kind: table): set figure.caption(position: top, separator: [#h(0.5em)])
+  show figure.where(kind: image): set figure(supplement: "图")
+  show figure.where(kind: image): set figure.caption(position: bottom, separator: [#h(0.5em)])
   show figure.caption: it => {
-    set text(size: zihao.at("五号"), weight: "bold")
-    it
+    if it.kind == table {
+      set text(size: zihao.at("小四"), weight: "bold", font: ("SimHei", "Times New Roman"))
+      it
+    } else if it.kind == image {
+      set text(size: zihao.at("小四"), font: ("SimSun", "Times New Roman"))
+      it
+    } else {
+      set text(size: zihao.at("五号"), weight: "bold")
+      it
+    }
   }
+
+  // 表格默认样式：内容五号字，三线表（无网格、无填充）
+  show figure.where(kind: table): set text(size: zihao.at("五号"))
+  set table(stroke: none, inset: (x: 0.6em, y: 0.5em))
 
   body
 }
@@ -694,7 +713,7 @@
       #text(
         size: zihao-small2,
         weight: "bold",
-        font: ("Arial", "SimHei"),
+        font: ("Times New Roman", "SimHei"),
       )[致#h(2em)谢]
     ]
     heading(level: 1, numbering: none, outlined: true, bookmarked: true)[致谢]

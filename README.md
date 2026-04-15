@@ -28,18 +28,38 @@ typst compile --font-path fonts main.typ
 
 ## 字体要求
 
-模板采用严格模式：**字体栈不做降级**，缺字体直接编译报 warning。`fonts/` 目录已打包 Windows 中易字体 + Times New Roman / Arial，这与 Word 论文模板的字体配置一致，也是本模板默认的字体配置。
+模板采用严格模式：**字体栈不做降级**，缺字体直接编译报 warning。本模板与 Word 论文模板的字体配置一致，要求以下字体：
 
-| family name | 角色 | 文件 |
-|---|---|---|
-| `SimSun` / `NSimSun` | 宋体 | `simsun.ttc` / `simsunb.ttf` |
-| `SimHei` | 黑体 | `simhei.ttf` |
-| `KaiTi` | 楷体 | `simkai.ttf` |
-| `FangSong` | 仿宋 | `simfang.ttf` |
-| `Times New Roman` | 西文衬线 | `TIMES.TTF` + Bold / Italic / BoldItalic |
-| `Arial` | 西文无衬线（黑体配对） | `ARIAL.TTF` + 多款变体 |
+| family name | 角色 | 用途 | 文件 |
+|---|---|---|---|
+| `SimSun` / `NSimSun` | 宋体 | 正文、图标题 | `simsun.ttc` / `simsunb.ttf` |
+| `SimHei` | 黑体 | 表标题、章节标题 | `simhei.ttf` |
+| `KaiTi` | 楷体 | 论文题目、引用 | `simkai.ttf` |
+| `FangSong` | 仿宋 | 备用中文 | `simfang.ttf` |
+| `Times New Roman` | 西文衬线 | 西文正文 | `TIMES.TTF` + `TIMESBD/I/BI.TTF` |
+| `Arial` | 西文无衬线（黑体配对） | 西文标题 | `ARIAL.TTF` + 多款变体 |
 
-字体包来自 [chillcicada/tntt](https://github.com/chillcicada/tntt) 的 fonts.zip 发布（TnTT 是清华大学 Typst 论文模板）。
+### 在线获取字体（推荐）
+
+字体包来自 [chillcicada/tntt](https://github.com/chillcicada/tntt) 的 `fonts.zip` 发布（TnTT 是清华大学 Typst 论文模板）。
+
+一行命令下载并解压到 `fonts/` 目录（macOS / Linux）：
+
+```bash
+mkdir -p fonts && \
+  curl -L -o /tmp/fonts.zip https://github.com/chillcicada/tntt/releases/latest/download/fonts.zip && \
+  unzip -o /tmp/fonts.zip -d fonts/
+```
+
+Windows PowerShell：
+
+```powershell
+New-Item -ItemType Directory -Force fonts | Out-Null
+Invoke-WebRequest -Uri "https://github.com/chillcicada/tntt/releases/latest/download/fonts.zip" -OutFile "$env:TEMP\fonts.zip"
+Expand-Archive -Force "$env:TEMP\fonts.zip" -DestinationPath fonts
+```
+
+下载完成后用 `--font-path fonts` 编译即可（见下文）。
 
 ### 编译
 
