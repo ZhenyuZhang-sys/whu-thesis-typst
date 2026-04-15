@@ -23,8 +23,22 @@ git clone git@github.com:ZhenyuZhang-sys/whu-thesis-typst.git
 4. 编译：
 
 ```bash
-typst compile main.typ
+typst compile --font-path fonts main.typ
 ```
+
+## 在 Typst 网页端使用
+
+Typst 官方网页编辑器（<https://typst.app>）不预装中文字体，本仓库已在 `fonts/` 目录打包了必需的开源字体，上传整个项目即可直接编译，无需额外配置。
+
+字体列表：
+
+| 字体名 | 用途 | 来源 |
+|---|---|---|
+| Noto Serif SC (Regular / Bold) | 宋体替代 | [notofonts/noto-cjk](https://github.com/notofonts/noto-cjk) |
+| Noto Sans SC (Regular / Bold)  | 黑体替代 | 同上 |
+| LXGW WenKai (Regular / Bold)   | 楷体替代 | [lxgw/LxgwWenKai](https://github.com/lxgw/LxgwWenKai) |
+
+本地编译时，系统字体（Songti SC / Heiti SC / Kaiti SC 等）会优先使用；缺失时自动回落到 `fonts/` 内的开源字体。
 
 ## 项目结构
 
@@ -33,8 +47,7 @@ typst compile main.typ
 ├── main.typ          # 主文件（论文入口）
 ├── whu-thesis.typ    # 模板核心文件
 ├── logo/             # 校徽等图片资源
-├── pages/            # 附加页面
-├── ref/              # 参考文献
+├── fonts/            # 打包的中文字体（Noto CJK + LXGW WenKai）
 └── demo.pdf          # 示例输出
 ```
 

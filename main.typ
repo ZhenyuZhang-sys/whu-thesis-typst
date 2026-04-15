@@ -5,13 +5,13 @@
 
 // ========== 论文设置 ==========
 #show: whu-thesis.with(
-  thesis-type: "master",        // bachelor, master, doctor
+  thesis-type: "bachelor",      // bachelor, master, doctor
   degree-class: "academic",     // academic, professional
 
-  title: "论文题目，楷体一号",
-  title-en: "A QoS-aware Self-Adaptive System Approach in Service Computing Environment",
-  department: "数学与统计学院",
-  department-en: "School of Mathematics and Statistics",
+  title: "基于 Typst 的武汉大学学位论文模板设计与实现",
+  title-en: "Design and Implementation of Wuhan University Thesis Template Based on Typst",
+  department: "计算机学院",
+  department-en: "School of Computer Science",
   author: "张三",
   author-en: "Xxxxxx Xxxxx",
   student-id: "2021202012345",
@@ -19,11 +19,11 @@
   supervisor-en: "Xxx Xxxxx",
   academic-title: "教授",
   academic-title-en: "Prof.",
-  subject: "英语",
-  major: "英国语言文学",
-  major-en: "English language and literature",
-  research-area: "英语语言学",
-  research-area-en: "Operator Theory",
+  subject: "计算机科学与技术",
+  major: "计算机科学与技术",
+  major-en: "Computer Science and Technology",
+  research-area: "系统软件",
+  research-area-en: "System Software",
   year: 2024,
   month: 4,
   keywords-zh: ("LaTeX", "毕业论文", "模版", "武汉大学"),
@@ -54,7 +54,7 @@
 // ========== 正文开始 ==========
 #mainmatter()
 
-#show: mainmatter-style.with(thesis-type: "master", title: "论文题目，楷体一号")
+#show: mainmatter-style.with(thesis-type: "bachelor", title: "基于 Typst 的武汉大学学位论文模板设计与实现")
 
 // ========== 第一章 ==========
 = 测试
@@ -174,7 +174,7 @@ $ mat(delim: "(", a_(11), a_(12), a_(13); a_(21), a_(22), a_(23); a_(31), a_(32)
 
 字体测试：
 
-宋体 #text(font: ("Heiti SC", "SimHei"))[黑体] #text(font: ("Kaiti SC", "KaiTi"))[楷书] #text(font: ("STFangsong", "FangSong"))[仿宋]
+宋体 #text(font: ("Heiti SC", "SimHei", "Noto Sans SC"))[黑体] #text(font: ("Kaiti SC", "KaiTi", "LXGW WenKai"))[楷书] #text(font: ("STFangsong", "FangSong", "Noto Serif SC"))[仿宋]
 
 #text(weight: "bold")[粗体] #emph[意大利斜体]
 
