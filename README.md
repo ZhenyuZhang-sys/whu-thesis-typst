@@ -28,14 +28,18 @@ typst compile --font-path fonts main.typ
 
 ## 字体要求
 
-模板采用严格模式：**字体栈不做降级**，缺字体直接编译报 warning。`fonts/` 目录已打包以下开源字体，效果接近 macOS 系统字体：
+模板采用严格模式：**字体栈不做降级**，缺字体直接编译报 warning。`fonts/` 目录已打包 Windows 中易字体 + Times New Roman / Arial，这与 Word 论文模板的字体配置一致，也是本模板默认的字体配置。
 
-| family name | 角色 | 文件 | 来源 |
-|---|---|---|---|
-| `Times New Roman` | 西文 | 4 款（Regular / Bold / Italic / BoldItalic） | macOS 系统 |
-| `Noto Serif SC` | 宋体 | Regular + Bold | [notofonts/noto-cjk](https://github.com/notofonts/noto-cjk) |
-| `Noto Sans SC` | 黑体 | Regular + Bold | 同上 |
-| `LXGW WenKai` | 楷体 | Regular + Bold | [lxgw/LxgwWenKai](https://github.com/lxgw/LxgwWenKai) |
+| family name | 角色 | 文件 |
+|---|---|---|
+| `SimSun` / `NSimSun` | 宋体 | `simsun.ttc` / `simsunb.ttf` |
+| `SimHei` | 黑体 | `simhei.ttf` |
+| `KaiTi` | 楷体 | `simkai.ttf` |
+| `FangSong` | 仿宋 | `simfang.ttf` |
+| `Times New Roman` | 西文衬线 | `TIMES.TTF` + Bold / Italic / BoldItalic |
+| `Arial` | 西文无衬线（黑体配对） | `ARIAL.TTF` + 多款变体 |
+
+字体包来自 [chillcicada/tntt](https://github.com/chillcicada/tntt) 的 fonts.zip 发布（TnTT 是清华大学 Typst 论文模板）。
 
 ### 编译
 
@@ -43,7 +47,7 @@ typst compile --font-path fonts main.typ
 typst compile --font-path fonts main.typ
 ```
 
-或严格只用仓库内字体、忽略系统字体：
+或严格只用仓库内字体、忽略系统字体（推荐；避免跨平台字体名差异）：
 
 ```bash
 typst compile --font-path fonts --ignore-system-fonts main.typ
@@ -51,11 +55,11 @@ typst compile --font-path fonts --ignore-system-fonts main.typ
 
 ### Typst 网页端
 
-直接上传整个项目到 <https://typst.app>，`fonts/` 里的字体会被自动识别。
+直接上传整个项目到 <https://typst.app>，`fonts/` 里的字体会被自动识别（请勿上传压缩包）。
 
 ### 自定义字体
 
-若要替换 family（比如改用思源黑体），把字体文件放入 `fonts/`，然后把 `whu-thesis.typ` 里出现的 family 名替换掉（如 `"Noto Sans SC"` → `"Source Han Sans SC"`）。字体通过 OpenType name 表的 Family Name 索引，文件名无所谓。
+若要替换 family（比如 macOS 用户想用 `Songti SC`、`Heiti SC`），把字体文件放入 `fonts/`，然后把 `whu-thesis.typ` 里出现的 family 名替换掉。字体通过 OpenType name 表的 Family Name 索引，文件名无所谓。
 
 ## 项目结构
 
