@@ -2,6 +2,8 @@
 // 武汉大学学位论文 Typst 模板
 // Version: 0.1.0
 
+#import "@preview/cuti:0.2.1": show-cn-fakebold
+
 // ========== 论文类型 ==========
 // thesis-type: "bachelor" | "master" | "doctor"
 // degree-class: "academic" | "professional"
@@ -111,6 +113,8 @@
     lang: "zh",
     region: "cn",
   )
+
+  show: show-cn-fakebold
 
   // 行距：本科 23pt 行距（≈1.59），硕博 20pt 行距（≈1.39），对齐 LaTeX 模板的 linespread 设置
   let body-leading = if thesis-type == "bachelor" { 23pt - zihao.at("小四") } else { 20pt - zihao.at("小四") }
