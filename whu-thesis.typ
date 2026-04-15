@@ -108,7 +108,7 @@
   )
 
   set text(
-    font: ("Times New Roman", "SimSun"),
+    font: ("Times New Roman", "Source Han Serif"),
     size: zihao.at("小四"),
     lang: "zh",
     region: "cn",
@@ -118,7 +118,7 @@
   show strong: it => context {
     let fonts = text.font
     let stack = if type(fonts) == array { fonts } else { (fonts,) }
-    if "SimHei" in stack or "KaiTi" in stack or "FangSong" in stack {
+    if "Source Han Sans SC" in stack or "KaiTi" in stack or "FangSong" in stack {
       it
     } else {
       fakebold(it)
@@ -182,7 +182,7 @@
         #text(
           size: zihao.at("二号"),
           weight: "extrabold",
-          font: ("Times New Roman", "SimSun"),
+          font: ("Times New Roman", "Source Han Serif"),
         )[#thesis-type-zh]
         #v(4em)
         #block(height: 6cm, width: 100%)[
@@ -227,7 +227,7 @@
       align(center)[
         #text(
           size: zihao.at("小二"),
-          font: ("Times New Roman", "SimSun"),
+          font: ("Times New Roman", "Source Han Serif"),
         )[#year-cn#h(0.25em)年#month-cn#h(0.25em)月]
       ]
       v(1cm)
@@ -287,7 +287,7 @@
 
       v(1fr)
       align(center)[
-        #text(size: zihao.at("三号"), font: ("Times New Roman", "SimHei"))[#year-cn 年#month-cn 月]
+        #text(size: zihao.at("三号"), font: ("Times New Roman", "Source Han Sans SC"))[#year-cn 年#month-cn 月]
       ]
       v(1cm)
     }
@@ -388,7 +388,7 @@
         #text(
           size: zihao.at("小二"),
           weight: "bold",
-          font: ("Times New Roman", "SimHei"),
+          font: ("Times New Roman", "Source Han Sans SC"),
         )[原创性声明]
       ]
       v(0.5cm)
@@ -404,7 +404,7 @@
         #text(
           size: zihao.at("小二"),
           weight: "bold",
-          font: ("Times New Roman", "SimHei"),
+          font: ("Times New Roman", "Source Han Sans SC"),
         )[版权使用授权书]
       ]
       v(0.5cm)
@@ -415,7 +415,7 @@
       text(size: zihao.at("小四"))[#sig-block]
     } else {
       align(center)[
-        #text(size: zihao.at("小二"), weight: "bold", font: ("Times New Roman", "SimHei"))[
+        #text(size: zihao.at("小二"), weight: "bold", font: ("Times New Roman", "Source Han Sans SC"))[
           关于学位论文原创性和学术规范的声明
         ]
       ]
@@ -487,7 +487,7 @@
       #text(
         size: zihao-small2,
         weight: "bold",
-        font: ("Times New Roman", "SimHei"),
+        font: ("Times New Roman", "Source Han Sans SC"),
       )[摘#h(2em)要]
     ]
     heading(level: 1, numbering: none, outlined: true, bookmarked: true)[摘要]
@@ -498,7 +498,7 @@
     par(first-line-indent: 0pt)[
       #text(
         weight: "bold",
-        font: ("Times New Roman", "SimHei"),
+        font: ("Times New Roman", "Source Han Sans SC"),
       )[关键词：]#keywords.join("；")
     ]
   }
@@ -539,7 +539,7 @@
     #text(
       size: zihao-small2,
       weight: "bold",
-      font: ("Times New Roman", "SimHei"),
+      font: ("Times New Roman", "Source Han Sans SC"),
     )[目#h(2em)录]
   ]
   v(0.5cm)
@@ -628,7 +628,7 @@
     set text(
       size: zihao.at("小二"),
       weight: "bold",
-      font: ("Times New Roman", "SimHei"),
+      font: ("Times New Roman", "Source Han Sans SC"),
     )
     v(0.8em)
     if it.numbering == none {
@@ -657,7 +657,7 @@
     set text(
       size: zihao.at("四号"),
       weight: "bold",
-      font: ("Times New Roman", "SimHei"),
+      font: ("Times New Roman", "Source Han Sans SC"),
     )
     v(0.5em)
     it
@@ -668,7 +668,7 @@
     set text(
       size: zihao.at("小四"),
       weight: "bold",
-      font: ("Times New Roman", "SimHei"),
+      font: ("Times New Roman", "Source Han Sans SC"),
     )
     v(0.3em)
     it
@@ -694,10 +694,10 @@
   show figure.where(kind: image): set figure.caption(position: bottom, separator: [#h(0.5em)])
   show figure.caption: it => {
     if it.kind == table {
-      set text(size: zihao.at("小四"), weight: "bold", font: ("SimHei", "Times New Roman"))
+      set text(size: zihao.at("小四"), weight: "bold", font: ("Source Han Sans SC", "Times New Roman"))
       it
     } else if it.kind == image {
-      set text(size: zihao.at("小四"), font: ("SimSun", "Times New Roman"))
+      set text(size: zihao.at("小四"), font: ("Source Han Serif", "Times New Roman"))
       it
     } else {
       set text(size: zihao.at("五号"), weight: "bold")
@@ -726,7 +726,7 @@
       #text(
         size: zihao-small2,
         weight: "bold",
-        font: ("Times New Roman", "SimHei"),
+        font: ("Times New Roman", "Source Han Sans SC"),
       )[致#h(2em)谢]
     ]
     heading(level: 1, numbering: none, outlined: true, bookmarked: true)[致谢]

@@ -32,12 +32,14 @@ typst compile --font-path fonts main.typ
 
 | family name | 角色 | 用途 | 文件 |
 |---|---|---|---|
-| `SimSun` / `NSimSun` | 宋体 | 正文、图标题 | `simsun.ttc` / `simsunb.ttf` |
-| `SimHei` | 黑体 | 表标题、章节标题 | `simhei.ttf` |
-| `KaiTi` | 楷体 | 论文题目、引用 | `simkai.ttf` |
-| `FangSong` | 仿宋 | 备用中文 | `simfang.ttf` |
+| `Source Han Serif` | 思源宋体 | 正文、图标题 | `SourceHanSerifCN-Regular/Bold.otf`（子集化）|
+| `Source Han Sans SC` | 思源黑体 | 表标题、章节标题 | `SourceHanSansSC-Regular/Bold.ttf`（子集化）|
+| `KaiTi` | 楷体 | 论文题目、引用 | `simkai.ttf`（系统/Word 自带）|
+| `FangSong` | 仿宋 | 备用中文 | `simfang.ttf`（系统/Word 自带）|
 | `Times New Roman` | 西文衬线 | 西文正文 | `TIMES.TTF` + `TIMESBD/I/BI.TTF` |
 | `Arial` | 西文无衬线（黑体配对） | 西文标题 | `ARIAL.TTF` + 多款变体 |
+
+> 中文主字体已迁移至 Adobe **思源宋体 / 思源黑体** 子集化版本（仅 1～2 MB，仓库友好）。子集化字体含 GB2312 + 常用扩展字符；如有生僻字渲染需求，可换为完整版 `SourceHanSerifSC-*.otf` / `SourceHanSansSC-*.otf` 并将 typ 中 `Source Han Serif` 改为 `Source Han Serif SC`。
 
 ### 在线获取字体（推荐）
 
@@ -80,6 +82,27 @@ typst compile --font-path fonts --ignore-system-fonts main.typ
 ### 自定义字体
 
 若要替换 family（比如 macOS 用户想用 `Songti SC`、`Heiti SC`），把字体文件放入 `fonts/`，然后把 `whu-thesis.typ` 里出现的 family 名替换掉。字体通过 OpenType name 表的 Family Name 索引，文件名无所谓。
+
+## 中文粗体（伪粗体）
+
+思源宋体（Source Han Serif）的 Bold 字重渲染较细，模板使用 [cuti](https://typst.app/universe/package/cuti) 提供的描边式伪粗体（仿 MS Word 风格）增强视觉效果。**仅对宋体启用伪粗体**——黑体/楷体/仿宋本身已有真粗体或不需加粗，避免叠加描边导致字形发糊：
+
+```typst
+#import "@preview/cuti:0.2.1": fakebold
+
+#show strong: it => context {
+  let stack = if type(text.font) == array { text.font } else { (text.font,) }
+  if "Source Han Sans SC" in stack or "KaiTi" in stack or "FangSong" in stack {
+    it
+  } else {
+    fakebold(it)
+  }
+}
+```
+
+正文中直接使用 `*加粗内容*` 即可。首次编译需联网下载 `cuti` 包。
+
+详细说明参考：<https://guide.typst.dev/FAQ/chinese-bold>
 
 ## 项目结构
 
