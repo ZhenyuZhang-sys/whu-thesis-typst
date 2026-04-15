@@ -28,39 +28,34 @@ typst compile --font-path fonts main.typ
 
 ## 字体要求
 
-模板采用严格模式：**字体栈不做降级**，缺字体直接编译报 warning 并在 PDF 中用 `.notdef` 字形占位。请自行将字体放入 `fonts/` 目录。
+模板采用严格模式：**字体栈不做降级**，缺字体直接编译报 warning。`fonts/` 目录已打包以下开源字体，效果接近 macOS 系统字体：
 
-必需的字体 family（与 macOS 系统字体名保持一致）：
+| family name | 角色 | 文件 | 来源 |
+|---|---|---|---|
+| `Times New Roman` | 西文 | 4 款（Regular / Bold / Italic / BoldItalic） | macOS 系统 |
+| `Noto Serif SC` | 宋体 | Regular + Bold | [notofonts/noto-cjk](https://github.com/notofonts/noto-cjk) |
+| `Noto Sans SC` | 黑体 | Regular + Bold | 同上 |
+| `LXGW WenKai` | 楷体 | Regular + Bold | [lxgw/LxgwWenKai](https://github.com/lxgw/LxgwWenKai) |
 
-| family name | 用途 | Regular + Bold |
-|---|---|---|
-| `Times New Roman` | 西文 | ✅ 必需 |
-| `Songti SC` | 正文宋体 | ✅ 必需 |
-| `Heiti SC` | 标题黑体 | ✅ 必需 |
-| `Kaiti SC` | 封面/题目楷体 | ✅ 必需 |
-
-> 字体通过 OpenType **name 表**里的 Family Name 索引，文件名无所谓；若下载的开源字体 family name 不同（如 Noto Serif SC），需要修改 `whu-thesis.typ` 中对应的 `font: (...)` 字段。
-
-### 本地编译
-
-macOS 系统自带以上所有字体，直接：
-
-```bash
-typst compile main.typ
-```
-
-### Typst 网页端
-
-把你下载的字体文件（.ttf / .otf）放到 `fonts/` 目录，整个项目上传 <https://typst.app> 即可。也可以用 `--font-path fonts`：
+### 编译
 
 ```bash
 typst compile --font-path fonts main.typ
 ```
 
-开源替代建议：
-- 宋体 → [Noto Serif SC](https://github.com/notofonts/noto-cjk) / [思源宋体](https://github.com/adobe-fonts/source-han-serif)
-- 黑体 → [Noto Sans SC](https://github.com/notofonts/noto-cjk) / [思源黑体](https://github.com/adobe-fonts/source-han-sans)
-- 楷体 → [LXGW WenKai](https://github.com/lxgw/LxgwWenKai) / [霞鹜文楷](https://github.com/lxgw/LxgwWenKai)
+或严格只用仓库内字体、忽略系统字体：
+
+```bash
+typst compile --font-path fonts --ignore-system-fonts main.typ
+```
+
+### Typst 网页端
+
+直接上传整个项目到 <https://typst.app>，`fonts/` 里的字体会被自动识别。
+
+### 自定义字体
+
+若要替换 family（比如改用思源黑体），把字体文件放入 `fonts/`，然后把 `whu-thesis.typ` 里出现的 family 名替换掉（如 `"Noto Sans SC"` → `"Source Han Sans SC"`）。字体通过 OpenType name 表的 Family Name 索引，文件名无所谓。
 
 ## 项目结构
 

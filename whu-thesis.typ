@@ -106,7 +106,7 @@
   )
 
   set text(
-    font: ("Times New Roman", "Songti SC"),
+    font: ("Times New Roman", "Noto Serif SC"),
     size: zihao.at("小四"),
     lang: "zh",
     region: "cn",
@@ -169,7 +169,7 @@
         #text(
           size: zihao.at("二号"),
           weight: "extrabold",
-          font: ("Times New Roman", "Songti SC"),
+          font: ("Times New Roman", "Noto Serif SC"),
         )[#thesis-type-zh]
         #v(4em)
         #block(height: 6cm, width: 100%)[
@@ -177,7 +177,7 @@
           #align(horizon + center)[
             #text(
               size: zihao.at("一号"),
-              font: ("Times New Roman", "Kaiti SC"),
+              font: ("Times New Roman", "LXGW WenKai"),
             )[#title]
           ]
         ]
@@ -214,7 +214,7 @@
       align(center)[
         #text(
           size: zihao.at("小二"),
-          font: ("Times New Roman", "Songti SC"),
+          font: ("Times New Roman", "Noto Serif SC"),
         )[#year-cn#h(0.25em)年#month-cn#h(0.25em)月]
       ]
       v(1cm)
@@ -239,7 +239,7 @@
         #v(0.2cm)
         #text(size: zihao.at("小二"), weight: "bold")[#degree-class-zh]
         #v(1.2cm)
-        #text(size: zihao.at("一号"), font: ("Times New Roman", "Kaiti SC"))[#title]
+        #text(size: zihao.at("一号"), font: ("Times New Roman", "LXGW WenKai"))[#title]
         #v(1.5cm)
       ]
 
@@ -274,7 +274,7 @@
 
       v(1fr)
       align(center)[
-        #text(size: zihao.at("三号"), font: ("Times New Roman", "Heiti SC"))[#year-cn 年#month-cn 月]
+        #text(size: zihao.at("三号"), font: ("Times New Roman", "Noto Sans SC"))[#year-cn 年#month-cn 月]
       ]
       v(1cm)
     }
@@ -375,7 +375,7 @@
         #text(
           size: zihao.at("小二"),
           weight: "bold",
-          font: ("Times New Roman", "Heiti SC"),
+          font: ("Times New Roman", "Noto Sans SC"),
         )[原创性声明]
       ]
       v(0.5cm)
@@ -391,7 +391,7 @@
         #text(
           size: zihao.at("小二"),
           weight: "bold",
-          font: ("Times New Roman", "Heiti SC"),
+          font: ("Times New Roman", "Noto Sans SC"),
         )[版权使用授权书]
       ]
       v(0.5cm)
@@ -402,7 +402,7 @@
       text(size: zihao.at("小四"))[#sig-block]
     } else {
       align(center)[
-        #text(size: zihao.at("小二"), weight: "bold", font: ("Times New Roman", "Heiti SC"))[
+        #text(size: zihao.at("小二"), weight: "bold", font: ("Times New Roman", "Noto Sans SC"))[
           关于学位论文原创性和学术规范的声明
         ]
       ]
@@ -474,7 +474,7 @@
       #text(
         size: zihao-small2,
         weight: "bold",
-        font: ("Times New Roman", "Heiti SC"),
+        font: ("Times New Roman", "Noto Sans SC"),
       )[摘#h(2em)要]
     ]
     heading(level: 1, numbering: none, outlined: true, bookmarked: true)[摘要]
@@ -485,7 +485,7 @@
     par(first-line-indent: 0pt)[
       #text(
         weight: "bold",
-        font: ("Times New Roman", "Heiti SC"),
+        font: ("Times New Roman", "Noto Sans SC"),
       )[关键词：]#keywords.join("；")
     ]
   }
@@ -526,7 +526,7 @@
     #text(
       size: zihao-small2,
       weight: "bold",
-      font: ("Times New Roman", "Heiti SC"),
+      font: ("Times New Roman", "Noto Sans SC"),
     )[目#h(2em)录]
   ]
   v(0.5cm)
@@ -615,7 +615,7 @@
     set text(
       size: zihao.at("小二"),
       weight: "bold",
-      font: ("Times New Roman", "Heiti SC"),
+      font: ("Times New Roman", "Noto Sans SC"),
     )
     v(0.8em)
     if it.numbering == none {
@@ -644,7 +644,7 @@
     set text(
       size: zihao.at("四号"),
       weight: "bold",
-      font: ("Times New Roman", "Heiti SC"),
+      font: ("Times New Roman", "Noto Sans SC"),
     )
     v(0.5em)
     it
@@ -655,7 +655,7 @@
     set text(
       size: zihao.at("小四"),
       weight: "bold",
-      font: ("Times New Roman", "Heiti SC"),
+      font: ("Times New Roman", "Noto Sans SC"),
     )
     v(0.3em)
     it
@@ -694,7 +694,7 @@
       #text(
         size: zihao-small2,
         weight: "bold",
-        font: ("Times New Roman", "Heiti SC"),
+        font: ("Times New Roman", "Noto Sans SC"),
       )[致#h(2em)谢]
     ]
     heading(level: 1, numbering: none, outlined: true, bookmarked: true)[致谢]
