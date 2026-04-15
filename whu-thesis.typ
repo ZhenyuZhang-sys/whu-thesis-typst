@@ -2,7 +2,7 @@
 // 武汉大学学位论文 Typst 模板
 // Version: 0.1.0
 
-#import "@preview/cuti:0.2.1": show-cn-fakebold
+#import "@preview/cuti:0.2.1": fakebold
 
 // ========== 论文类型 ==========
 // thesis-type: "bachelor" | "master" | "doctor"
@@ -114,7 +114,16 @@
     region: "cn",
   )
 
-  show: show-cn-fakebold
+  // 只对宋体（SimSun）使用伪粗体；黑体/楷体/仿宋本身有真粗体或不需要加粗
+  show strong: it => context {
+    let fonts = text.font
+    let stack = if type(fonts) == array { fonts } else { (fonts,) }
+    if "SimHei" in stack or "KaiTi" in stack or "FangSong" in stack {
+      it
+    } else {
+      fakebold(it)
+    }
+  }
 
   // 行距：本科 23pt 行距（≈1.59），硕博 20pt 行距（≈1.39），对齐 LaTeX 模板的 linespread 设置
   let body-leading = if thesis-type == "bachelor" { 23pt - zihao.at("小四") } else { 20pt - zihao.at("小四") }
